@@ -6,7 +6,11 @@ const knexInstance = knex({
   connection: process.env.DB_URL
 })
 
-
+knexInstance.from('')
+  .select('*')
+  .then(result=> {
+      console.log(result)
+  });
 
 // function searchByProductName(searchTerm){
 // knexInstance
@@ -48,26 +52,26 @@ const knexInstance = knex({
     
 //     getProductsWithImages()
 
-function mostPopularVideoForDays(days){
+// function mostPopularVideoForDays(days){
 
-    knexInstance
-        .select('video_name', 'region')
-        .count('date_viewed AS views')
-        .where(
-            'date_viewed',
-            '>',
-            knexInstance.raw(`now() - '?? days' :: INTERVAL`, days)
-        )
-        .from('whopipe_video_views')
-        .groupBy('video_name', 'region')
-        .orderBy([
-            {column: 'region', order: 'ASC' },
-            {column: 'views', order: 'DESC' },
+//     knexInstance
+//         .select('video_name', 'region')
+//         .count('date_viewed AS views')
+//         .where(
+//             'date_viewed',
+//             '>',
+//             knexInstance.raw(`now() - '?? days' :: INTERVAL`, days)
+//         )
+//         .from('whopipe_video_views')
+//         .groupBy('video_name', 'region')
+//         .orderBy([
+//             {column: 'region', order: 'ASC' },
+//             {column: 'views', order: 'DESC' },
 
-        ])
-        .then(result=> {
-            console.log(result)
-        })
-}
+//         ])
+//         .then(result=> {
+//             console.log(result)
+//         })
+// }
 
-mostPopularVideoForDays(30)
+// mostPopularVideoForDays(30)
