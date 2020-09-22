@@ -6,7 +6,7 @@ const knexInstance = knex({
   connection: process.env.DB_URL
 })
 
-knexInstance.from('')
+knexInstance.from('shopping_list')
   .select('*')
   .then(result=> {
       console.log(result)
