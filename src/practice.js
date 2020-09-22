@@ -59,9 +59,9 @@ knexInstance.from('shopping_list')
 //         .count('date_viewed AS views')
 //         .where(
 //             'date_viewed',
-//             '>',
-//             knexInstance.raw(`now() - '?? days' :: INTERVAL`, days)
-//         )
+        //     '>',
+        //     knexInstance.raw(`now() - '?? days' :: INTERVAL`, days)
+        // )
 //         .from('whopipe_video_views')
 //         .groupBy('video_name', 'region')
 //         .orderBy([
